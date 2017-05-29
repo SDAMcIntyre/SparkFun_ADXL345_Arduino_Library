@@ -120,6 +120,7 @@ public:
 	int getDevID();
 	void readAccel(int* xyx);
 	void readAccel(int* x, int* y, int* z);
+	void readAccel(int* x, int* y, int* z, unsigned long* t);
 	void get_Gxyz(double *xyz);
 	
 	void setTapThreshold(int tapThreshold);
