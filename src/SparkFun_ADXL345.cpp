@@ -68,6 +68,9 @@ int ADXL345::getDevID() {
 	return int (_b);
 }
 
+void ADXL345::standby() {
+	writeTo(ADXL345_POWER_CTL, 0);
+}
 
 /*********************** READING ACCELERATION ***********************/
 /*    Reads Acceleration into Three Variables:  x, y and z          */

@@ -118,6 +118,7 @@ public:
 	ADXL345(int CS);
 	void powerOn();
 	int getDevID();
+	void standby();
 	void readAccel(int* xyx);
 	void readAccel(int* x, int* y, int* z);
 	void get_Gxyz(double *xyz);
