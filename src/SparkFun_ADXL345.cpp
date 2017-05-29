@@ -48,8 +48,6 @@ ADXL345::ADXL345(int CS) {
 	I2C = false;
 	SPI.begin();
 	SPI.setDataMode(SPI_MODE3);
-	pinMode(_CS, OUTPUT);
-	digitalWrite(_CS, HIGH);
 }
 
 void ADXL345::powerOn() {
