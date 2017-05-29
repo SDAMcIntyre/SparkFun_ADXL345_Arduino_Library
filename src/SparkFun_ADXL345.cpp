@@ -47,7 +47,6 @@ ADXL345::ADXL345(int CS) {
 	_CS = CS;
 	I2C = false;
 	SPI.begin();
-	SPI.setDataMode(SPI_MODE3);
 }
 
 void ADXL345::powerOn() {
@@ -148,10 +147,12 @@ void ADXL345::readFromI2C(byte address, int num, byte _buff[]) {
 /************************** WRITE FROM SPI **************************/
 /*         Point to Destination; Write Value; Turn Off              */
 void ADXL345::writeToSPI(byte __reg_address, byte __val) {
+  SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE3));
   digitalWrite(_CS, LOW);
   SPI.transfer(__reg_address); 
   SPI.transfer(__val); 
   digitalWrite(_CS, HIGH); 
+  SPI.endTransaction();
 }
 
 /*************************** READ FROM SPI **************************/
@@ -164,12 +165,14 @@ void ADXL345::readFromSPI(byte __reg_address, int num, byte _buff[]) {
   	_address = _address | 0x40;
   }
 
+  SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE3));
   digitalWrite(_CS, LOW);
   SPI.transfer(_address);		// Transfer Starting Reg Address To Be Read  
   for(int i=0; i<num; i++){
     _buff[i] = SPI.transfer(0x00);
   }
   digitalWrite(_CS, HIGH);
+  SPI.endTransaction();
 }
 
 /*************************** RANGE SETTING **************************/
