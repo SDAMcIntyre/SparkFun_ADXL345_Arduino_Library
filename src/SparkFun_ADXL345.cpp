@@ -144,7 +144,7 @@ void ADXL345::readFromI2C(byte address, int num, byte _buff[]) {
 	Wire.endTransmission();         	
 }
 
-/************************** WRITE FROM SPI **************************/
+/************************** WRITE TO SPI **************************/
 /*         Point to Destination; Write Value; Turn Off              */
 void ADXL345::writeToSPI(byte __reg_address, byte __val) {
   SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE3));
