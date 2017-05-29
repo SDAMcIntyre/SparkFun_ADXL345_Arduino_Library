@@ -39,6 +39,7 @@ ActivityINT                     KEYWORD2
 FreeFallINT                     KEYWORD2
 doubleTapINT                    KEYWORD2
 singleTapINT                    KEYWORD2
+enableInterrupts                KEYWORD2
 readAccel                       KEYWORD2
 triggered                       KEYWORD2
 getInterruptSource              KEYWORD2

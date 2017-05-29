@@ -204,6 +204,7 @@ public:
 	void FreeFallINT(bool status);
 	void doubleTapINT(bool status);
 	void singleTapINT(bool status);
+	void enableInterrupts(bool single_tap, bool double_tap, bool free_fall, bool activity, bool inactivity);
 	
 	void getRangeSetting(byte* rangeSetting);
 	void setRangeSetting(int val);

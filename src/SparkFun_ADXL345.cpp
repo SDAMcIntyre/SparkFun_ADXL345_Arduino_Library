@@ -779,6 +779,14 @@ void ADXL345::InactivityINT(bool status) {
 	}
 }
 
+void ADXL345::enableInterrupts(bool single_tap, bool double_tap, bool free_fall, bool activity, bool inactivity) {
+	singleTapINT(single_tap);
+	doubleTapINT(double_tap);
+	FreeFallINT(free_fall);
+	ActivityINT(activity);
+	InactivityINT(inactivity);
+}
+
 void ADXL345::setRegisterBit(byte regAdress, int bitPos, bool state) {
 	byte _b;
 	readFrom(regAdress, 1, &_b);
