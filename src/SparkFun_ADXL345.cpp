@@ -68,6 +68,10 @@ int ADXL345::getDevID() {
 	return int (_b);
 }
 
+void ADXL345::measureMode() {
+	setRegisterBit(ADXL345_POWER_CTL, 3, 1);
+}
+
 
 /*********************** READING ACCELERATION ***********************/
 /*    Reads Acceleration into Three Variables:  x, y and z          */
